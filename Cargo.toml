@@ -1,0 +1,24 @@
+[package]
+name = "pallet-janus"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+frame-support = {version = "40.1.0", default-features = false}
+frame-system = {version = "40.2.0", default-features = false}
+
+codec = {version = "3.6.12", default-features = false, package = "parity-scale-codec", features = ["derive"]}
+scale-info = {version = "2.11.1", default-features = false, features = ["derive"]}
+
+sp-runtime = {version = "41.1.0", default-features = false}
+
+[features]
+default = ["std"]
+std = [
+    "frame-support/std",
+    "frame-system/std",
+    "codec/std",
+    "scale-info/std",
+    "sp-runtime/std"
+]
+
