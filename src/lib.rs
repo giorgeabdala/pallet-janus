@@ -1,3 +1,5 @@
+mod tests;
+
 pub use pallet::*;
 
 #[frame_support::pallet]
@@ -46,7 +48,7 @@ pub mod pallet {
         #[pallet::call_index(1)]
         #[pallet::weight(Weight::default())]
         pub  fn cause_error(origin: OriginFor<T>) -> DispatchResult {
-            let who = ensure_signed(origin)?;
+            ensure_signed(origin)?;
 
             match Store::<T>::get() {
                 None => Err(Error::<T>::NoneValue.into()),
@@ -61,15 +63,4 @@ pub mod pallet {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    
-}   
+}
